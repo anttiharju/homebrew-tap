@@ -1,4 +1,4 @@
-class VmatchGolangciLint < Formula
+class Vmatch < Formula
 	desc "Wrapper that automatically calls the golangci-lint version matching your project"
 	homepage "https://anttiharju.dev/vmatch/"
 
