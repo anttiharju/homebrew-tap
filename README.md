@@ -1,5 +1,5 @@
-# homebrew-pkg
+# homebrew-app
 
 ```sh
-brew tap anttiharju/pkg
+brew tap anttiharju/app
 ```
