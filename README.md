@@ -1,5 +1,5 @@
 # homebrew-packages
 
 ```sh
-brew tap anttiharju/packages
+brew tap anttiharju/pkg
 ```
