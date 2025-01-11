@@ -6,7 +6,7 @@ class VmatchGolangciLint < Formula
 	sha256 "bbf845be21b492933be5eb412302eb0554c08773a87feead70aeaa092ab2df0e"
 	head "https://github.com/anttiharju/vmatch-golangci-lint"
 
-	depends_on "go" => :build
+	depends_on "go@1.23" => :build
 	depends_on "make" => :build
 
 	def install
