@@ -1,10 +1,10 @@
 class VmatchGolangciLint < Formula
 	desc "Wrapper that automatically calls the golangci-lint version matching your project"
-	homepage "https://anttiharju.dev/vmatch-golangci-lint/"
+	homepage "https://anttiharju.dev/vmatch/"
 
-	url "https://github.com/anttiharju/vmatch-golangci-lint/archive/refs/tags/v0-alpha-07dd193.tar.gz"
-	sha256 "bbf845be21b492933be5eb412302eb0554c08773a87feead70aeaa092ab2df0e"
-	head "https://github.com/anttiharju/vmatch-golangci-lint"
+	url "https://github.com/anttiharju/vmatch/archive/refs/tags/build3.tar.gz"
+	sha256 "129385d213db61f0a8256c54fb78c5db8ef8eab9287225150795a8463793d4bc"
+	head "https://github.com/anttiharju/vmatch"
 
 	depends_on "go@1.23" => :build
 	depends_on "make" => :build
@@ -12,7 +12,7 @@ class VmatchGolangciLint < Formula
 	def install
 		ENV["GOPATH"] = buildpath
 
-		bin_path = buildpath/"src/github.com/anttiharju/vmatch-golangci-lint"
+		bin_path = buildpath/"src/github.com/anttiharju/vmatch"
 		bin_path.install Dir["*"]
 		cd bin_path do
 		  system "make", "build"
