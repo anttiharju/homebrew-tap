@@ -85,7 +85,7 @@ def generate_replacements(config: GoFormulaConfig) -> Dict[str, str]:
         "URL": config.url,
         "SHA256": calculate_sha256(config.url),
         "REPO": extract_repo(config.url),
-        "GO_VERSION": config.go,
+        "GO": config.go,
         "APP_NAME": config.name,
         "VERSION": extract_version(config.url),
     }

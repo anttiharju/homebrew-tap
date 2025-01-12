@@ -8,7 +8,7 @@ config = GoFormulaConfig(
     description=os.environ["DESCRIPTION"],
     homepage=os.environ["HOMEPAGE"],
     url=os.environ["URL"],
-    go=os.environ["GO_VERSION"],
+    go=os.environ["GO"],
 )
 
 render_formula(config)
