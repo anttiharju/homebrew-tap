@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Render Formula
+      - name: Render formula
         env:
           TEMPLATE: Go
           APP_NAME: vmatch-golangci-lint
