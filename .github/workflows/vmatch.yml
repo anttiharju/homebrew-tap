@@ -1,11 +1,8 @@
-name: vMatch formulas
+name: vMatch
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      app_name:
-        required: true
-        type: string
       description:
         required: true
         type: string
@@ -23,8 +20,8 @@ permissions:
   contents: write
 
 jobs:
-  update:
-    name: Update
+  update-formulas:
+    name: Update formulas
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -33,7 +30,7 @@ jobs:
       - name: Render Formula
         env:
           TEMPLATE: "Go"
-          APP_NAME: ${{ inputs.app_name }}
+          APP_NAME: vmatch-golangci-lint
           DESCRIPTION: ${{ inputs.description }}
           HOMEPAGE: ${{ inputs.homepage }}
           URL: ${{ inputs.url }}
@@ -48,4 +45,4 @@ jobs:
       - name: Release
         uses: anttiharju/actions/commit-changes@v0
         with:
-          message: "Update ${{ inputs.app_name }} to ${{ steps.extract-version.outputs.version }}"
+          message: "Update vmatch to ${{ steps.extract-version.outputs.version }}"
