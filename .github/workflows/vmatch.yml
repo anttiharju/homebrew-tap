@@ -1,4 +1,4 @@
-name: vMatch
+name: Homebrew tap
 
 on:
   workflow_call:
@@ -17,8 +17,8 @@ permissions:
   contents: write
 
 jobs:
-  update-formulas:
-    name: Update formulas
+  update-vmatch-formulas:
+    name: Update vMatch formulas
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
