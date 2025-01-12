@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cat scripts/go-formula-template | \
+SCRIPT_DIR=$(dirname "$0")
+
+cat "$SCRIPT_DIR"/go-formula-template | \
 sed "s/\$CLASS_NAME/VmatchGolangciLint/g" | \
 sed "s/\$DESCRIPTION/Wrapper that automatically calls the golangci-lint version matching your project/g" | \
 sed "s|\$HOMEPAGE|https://anttiharju.dev/vmatch/|g" | \
