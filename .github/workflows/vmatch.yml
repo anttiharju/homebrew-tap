@@ -42,4 +42,4 @@ jobs:
       - name: Release
         uses: anttiharju/actions/commit-changes@v0
         with:
-          message: "Update vmatch to ${{ steps.extract-version.outputs.version }}"
+          message: "Update vMatch to ${{ steps.extract-version.outputs.version }}"
