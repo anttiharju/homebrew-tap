@@ -26,7 +26,7 @@ jobs:
 
       - name: Render Formula
         env:
-          TEMPLATE: "Go"
+          TEMPLATE: Go
           APP_NAME: vmatch-golangci-lint
           DESCRIPTION: Wrapper that automatically calls the golangci-lint version matching your project
           HOMEPAGE: ${{ inputs.homepage }}
