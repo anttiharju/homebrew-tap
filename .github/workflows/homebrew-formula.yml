@@ -39,6 +39,11 @@ jobs:
           GO: ${{ inputs.go }}
         run: scripts/render.py
 
+      - name: Extract version from url
+        id: extract-version
+        run: |
+          echo "version=$(echo ${{ inputs.url }} | sed -E 's/.*\/([^\/]+)\.tar\.gz/\1/')" >> "$GITHUB_OUTPUT"
+
       - name: Commit changes
         run: |
           git config user.name "$actor"
@@ -46,12 +51,12 @@ jobs:
           # github-actions[bot]@users.noreply.github.com
 
           if [ -z "$(git status --porcelain)" ]; then
-            echo "Formula $name is already up to date!"
+            echo "No changes to commit"
           else
             git add Formula/"$name".rb
-            GIT_COMMITTER_NAME="github-actions[bot]" GIT_COMMITTER_EMAIL="github-actions[bot]@users.noreply.github.com" git commit -m "Update $name formula"
+            GIT_COMMITTER_NAME="github-actions[bot]" GIT_COMMITTER_EMAIL="github-actions[bot]@users.noreply.github.com" git commit -m "$message"
             git push
           fi
         env:
           actor: ${{ github.actor }}
-          name: ${{ inputs.name }}
+          message: "Update ${{ inputs.name }} to ${{ steps.extract-version.outputs.version }}"
