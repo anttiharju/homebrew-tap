@@ -14,7 +14,7 @@ class $CLASS_NAME < Formula
         bin_path = buildpath/"src/$REPO"
         bin_path.install Dir["*"]
         cd bin_path do
-          system "go", "build", "-C", "cmd/$APP_NAME", "-ldflags", "-s -w -buildid=brew-$VERSION -X $REPO/pkg/exit.appName=$APP_NAME"
+          system "go", "build", "-C", "cmd/$APP_NAME", "-ldflags", "-s -w -buildid=brew-$VERSION"
           bin.install "cmd/$APP_NAME/$APP_NAME"
         end
     end
