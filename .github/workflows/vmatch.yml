@@ -45,7 +45,7 @@ jobs:
           url: ${{ inputs.url }}
         run: echo "version=$(basename $url)" >> $GITHUB_OUTPUT
 
-      - name: Release
+      - name: Commit changes
         uses: anttiharju/actions/commit-changes@v0
         with:
           message: "Update vMatch formulas to ${{ steps.extract-version.outputs.version }}"
