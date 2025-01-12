@@ -1,14 +1,23 @@
 #!/usr/bin/env python3
 
+# actual inputs
+app_name = "vmatch-golangci-lint"
+
+# setup
 from pathlib import Path
+
+def to_pascal_case(kebab_str: str) -> str:
+  return ''.join(word.capitalize() for word in kebab_str.split('-'))
 
 script_dir = Path(__file__).parent
 template_path = script_dir / "go-formula-template"
 
-app_name = "vmatch-golangci-lint"
+# programmatic inputs
+class_name = to_pascal_case(app_name)
 
+# templating
 replacements = {
-  "CLASS_NAME": "VmatchGolangciLint",
+  "CLASS_NAME": class_name,
   "DESCRIPTION": "Wrapper that automatically calls the golangci-lint version matching your project",
   "HOMEPAGE": "https://anttiharju.dev/vmatch/",
   "URL": "https://github.com/anttiharju/vmatch/archive/refs/tags/build5.tar.gz",
