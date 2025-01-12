@@ -58,9 +58,15 @@ def generate_replacements(config: FormulaConfig) -> Dict[str, str]:
         "VERSION": extract_version(config.url)
     }
 
-def create_formula(config: FormulaConfig, script_dir: Path) -> None:
-    """Create Homebrew formula from a template."""
-    template_path = script_dir / "go-formula-template"
+def create_formula(config: FormulaConfig, script_dir: Path, template_name: str) -> None:
+    """Create Homebrew formula from a template.
+    
+    Args:
+        config: Formula configuration
+        script_dir: Directory containing script and templates
+        template_name: Name of the template file to use
+    """
+    template_path = script_dir / template_name
     formula_dir = script_dir.parent / "Formula"
     formula_dir.mkdir(exist_ok=True)
 
@@ -82,7 +88,7 @@ def main() -> None:
         go_version="1.23"
     )
     
-    create_formula(config, Path(__file__).parent)
+    create_formula(config, Path(__file__).parent, "go-formula-template")
 
 if __name__ == "__main__":
     main()
