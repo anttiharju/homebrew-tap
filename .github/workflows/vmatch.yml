@@ -3,9 +3,6 @@ name: vMatch
 on:
   workflow_call:
     inputs:
-      description:
-        required: true
-        type: string
       homepage:
         required: true
         type: string
@@ -31,7 +28,7 @@ jobs:
         env:
           TEMPLATE: "Go"
           APP_NAME: vmatch-golangci-lint
-          DESCRIPTION: ${{ inputs.description }}
+          DESCRIPTION: Wrapper that automatically calls the golangci-lint version matching your project
           HOMEPAGE: ${{ inputs.homepage }}
           URL: ${{ inputs.url }}
           GO_VERSION: ${{ inputs.go_version }}
