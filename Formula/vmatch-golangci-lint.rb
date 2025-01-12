@@ -14,7 +14,7 @@ class VmatchGolangciLint < Formula
 		bin_path = buildpath/"src/github.com/anttiharju/vmatch"
 		bin_path.install Dir["*"]
 		cd bin_path do
-		  system "go", "build", "-C", "cmd/vmatch-golangci-lint", "-ldflags", "-s -w -buildid=$BUILD_PREFIX-$BUILDID -X github.com/anttiharju/vmatch/pkg/exit.appName=vmatch-golangci-lint"
+		  system "go", "build", "-C", "cmd/vmatch-golangci-lint", "-ldflags", "-s -w -buildid=brew-build5 -X github.com/anttiharju/vmatch/pkg/exit.appName=vmatch-golangci-lint"
 		  bin.install "cmd/vmatch-golangci-lint/vmatch-golangci-lint"
 		end
 	  end
