@@ -5,6 +5,8 @@ from pathlib import Path
 script_dir = Path(__file__).parent
 template_path = script_dir / "go-formula-template"
 
+app_name = "vmatch-golangci-lint"
+
 replacements = {
   "CLASS_NAME": "VmatchGolangciLint",
   "DESCRIPTION": "Wrapper that automatically calls the golangci-lint version matching your project",
@@ -13,7 +15,7 @@ replacements = {
   "SHA256": "33d87b5789ecd5920e746ce0e8762ef09f8be4d746c6d319801c74f593d7f6ce",
   "REPO": "github.com/anttiharju/vmatch",
   "GO_VERSION": "1.23",
-  "APP_NAME": "vmatch-golangci-lint",
+  "APP_NAME": app_name,
   "VERSION": "build5"
 }
 
