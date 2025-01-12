@@ -1,5 +1,5 @@
 class VmatchGolangciLint < Formula
-    desc "different so a commit gets created"
+    desc "Wrapper that automatically calls the golangci-lint version matching your project"
     homepage "https://anttiharju.dev/vmatch"
 
     url "https://github.com/anttiharju/vmatch/archive/refs/tags/build6.tar.gz"
