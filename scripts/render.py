@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from helpers import FormulaConfig, render_formula
+from helpers import GoFormulaConfig, render_formula
 
-config = FormulaConfig(
+config = GoFormulaConfig(
     name="vmatch-golangci-lint",
     description="Wrapper that automatically calls the golangci-lint version matching your project",
     homepage="https://anttiharju.dev/vmatch",
@@ -10,4 +10,4 @@ config = FormulaConfig(
     go="1.23",
 )
 
-render_formula(config, "go-formula-template")
+render_formula(config)
