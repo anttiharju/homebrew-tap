@@ -17,7 +17,7 @@ class VmatchGolangciLint < Formula
           system "go", "build", "-C", "cmd/vmatch-golangci-lint", "-ldflags", "-s -w -buildid=brew-build5 -X github.com/anttiharju/vmatch/pkg/exit.appName=vmatch-golangci-lint"
           bin.install "cmd/vmatch-golangci-lint/vmatch-golangci-lint"
         end
-      end
+    end
 
     test do
         system "true"
