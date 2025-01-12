@@ -10,6 +10,15 @@ go_version = "1.23"
 
 # setup
 from pathlib import Path
+import subprocess
+import tempfile
+import os
+
+def calculate_sha256(url: str) -> str:
+  with tempfile.NamedTemporaryFile() as tmp:
+    subprocess.run(['curl', '-L', '-o', tmp.name, url], check=True)
+    result = subprocess.run(['shasum', '-a', '256', tmp.name], capture_output=True, text=True, check=True)
+    return result.stdout.split()[0]
 
 def to_pascal_case(kebab_str: str) -> str:
   return ''.join(word.capitalize() for word in kebab_str.split('-'))
@@ -19,6 +28,7 @@ template_path = script_dir / "go-formula-template"
 
 # programmatic inputs
 class_name = to_pascal_case(app_name)
+sha256 = calculate_sha256(url)
 
 # templating
 replacements = {
@@ -26,7 +36,7 @@ replacements = {
   "DESCRIPTION": description,
   "HOMEPAGE": homepage,
   "URL": url,
-  "SHA256": "33d87b5789ecd5920e746ce0e8762ef09f8be4d746c6d319801c74f593d7f6ce",
+  "SHA256": sha256,
   "REPO": repo,
   "GO_VERSION": go_version,
   "APP_NAME": app_name,
