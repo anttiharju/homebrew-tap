@@ -12,11 +12,11 @@ from typing import Dict
 class FormulaConfig:
     """Configuration for generating a Homebrew formula."""
 
-    app_name: str
+    name: str
     description: str
     homepage: str
     url: str
-    go_version: str
+    go: str
 
 
 def calculate_sha256(url: str) -> str:
@@ -59,14 +59,14 @@ def extract_version(url: str) -> str:
 def generate_replacements(config: FormulaConfig) -> Dict[str, str]:
     """Generate replacement dictionary for template variables."""
     return {
-        "CLASS_NAME": to_pascal_case(config.app_name),
+        "CLASS_NAME": to_pascal_case(config.name),
         "DESCRIPTION": config.description,
         "HOMEPAGE": config.homepage,
         "URL": config.url,
         "SHA256": calculate_sha256(config.url),
         "REPO": extract_repo(config.url),
-        "GO_VERSION": config.go_version,
-        "APP_NAME": config.app_name,
+        "GO_VERSION": config.go,
+        "APP_NAME": config.name,
         "VERSION": extract_version(config.url),
     }
 
@@ -89,4 +89,4 @@ def render_formula(config: FormulaConfig, template_name: str) -> None:
     for key, value in replacements.items():
         template = template.replace(f"${key}", value)
 
-    (formula_dir / f"{config.app_name}.rb").write_text(template)
+    (formula_dir / f"{config.name}.rb").write_text(template)
