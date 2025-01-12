@@ -13,6 +13,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import os
+import re
 
 def calculate_sha256(url: str) -> str:
   with tempfile.NamedTemporaryFile() as tmp:
@@ -23,12 +24,19 @@ def calculate_sha256(url: str) -> str:
 def to_pascal_case(kebab_str: str) -> str:
   return ''.join(word.capitalize() for word in kebab_str.split('-'))
 
+def extract_version(url: str) -> str:
+    match = re.search(r'/tags/([^/]+)\.tar\.gz$', url)
+    if match:
+        return match.group(1)
+    raise ValueError("Could not extract version from URL")
+
 script_dir = Path(__file__).parent
 template_path = script_dir / "go-formula-template"
 
 # programmatic inputs
 class_name = to_pascal_case(app_name)
 sha256 = calculate_sha256(url)
+version = extract_version(url)
 
 # templating
 replacements = {
@@ -40,7 +48,7 @@ replacements = {
   "REPO": repo,
   "GO_VERSION": go_version,
   "APP_NAME": app_name,
-  "VERSION": "build5"
+  "VERSION": version
 }
 
 template = template_path.read_text()
