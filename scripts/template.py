@@ -5,7 +5,6 @@ app_name = "vmatch-golangci-lint"
 description = "Wrapper that automatically calls the golangci-lint version matching your project"
 homepage = "https://anttiharju.dev/vmatch/"
 url = "https://github.com/anttiharju/vmatch/archive/refs/tags/build5.tar.gz"
-repo = "github.com/anttiharju/vmatch"
 go_version = "1.23"
 
 # setup
@@ -24,6 +23,12 @@ def calculate_sha256(url: str) -> str:
 def to_pascal_case(kebab_str: str) -> str:
   return ''.join(word.capitalize() for word in kebab_str.split('-'))
 
+def extract_repo(url: str) -> str:
+    match = re.search(r'(github\.com/[^/]+/[^/]+)/', url)
+    if match:
+        return match.group(1)
+    raise ValueError("Could not extract repo from GitHub URL")
+
 def extract_version(url: str) -> str:
     match = re.search(r'/tags/([^/]+)\.tar\.gz$', url)
     if match:
@@ -36,6 +41,7 @@ template_path = script_dir / "go-formula-template"
 # programmatic inputs
 class_name = to_pascal_case(app_name)
 sha256 = calculate_sha256(url)
+repo = extract_repo(url)
 version = extract_version(url)
 
 # templating
