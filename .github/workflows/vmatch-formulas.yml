@@ -32,6 +32,7 @@ jobs:
 
       - name: Render Formula
         env:
+          TEMPLATE: "Go"
           APP_NAME: ${{ inputs.app_name }}
           DESCRIPTION: ${{ inputs.description }}
           HOMEPAGE: ${{ inputs.homepage }}

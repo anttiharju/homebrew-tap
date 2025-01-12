@@ -9,9 +9,10 @@ from typing import Dict
 
 
 @dataclass
-class GoFormulaConfig:
+class FormulaConfig:
     """Configuration for generating a Homebrew formula."""
 
+    template: str
     app_name: str
     description: str
     homepage: str
@@ -64,7 +65,7 @@ def extract_version(url: str) -> str:
     raise ValueError("Could not extract version from URL")
 
 
-def generate_replacements(config: GoFormulaConfig) -> Dict[str, str]:
+def generate_replacements(config: FormulaConfig) -> Dict[str, str]:
     """Generate replacement dictionary for template variables."""
     return {
         "CLASS_NAME": to_pascal_case(config.app_name),
@@ -79,15 +80,14 @@ def generate_replacements(config: GoFormulaConfig) -> Dict[str, str]:
     }
 
 
-def render_formula(config: GoFormulaConfig) -> None:
+def render_formula(config: FormulaConfig) -> None:
     """Render a Homebrew formula from a template.
 
     Args:
         config: Formula configuration
-        template_name: Name of the template file to use
     """
     scripts_dir = Path(__file__).parent
-    template_path = scripts_dir / "go-formula-template"
+    template_path = scripts_dir / f"templates/{config.template}.rb"
     formula_dir = scripts_dir.parent / "Formula"
     formula_dir.mkdir(exist_ok=True)
 

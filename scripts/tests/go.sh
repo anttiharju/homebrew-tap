@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+export TEMPLATE="Go"
 export APP_NAME="vmatch-golangci-lint"
 export DESCRIPTION="Wrapper that automatically calls the golangci-lint version matching your project"
 export HOMEPAGE="https://anttiharju.dev/vmatch"
