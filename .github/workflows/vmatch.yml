@@ -36,8 +36,7 @@ jobs:
 
       - name: Extract version from url
         id: extract-version
-        run: |
-          echo "version=$(echo ${{ inputs.url }} | sed -E 's/.*\/([^\/]+)\.tar\.gz/\1/')" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(echo ${{ inputs.url }} | sed -E 's/.*\/([^\/]+)\.tar\.gz/\1/')" >> "$GITHUB_OUTPUT"
 
       - name: Release
         uses: anttiharju/actions/commit-changes@v0
