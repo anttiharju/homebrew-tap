@@ -1,5 +1,5 @@
-# homebrew-app
+# homebrew-tap
 
 ```sh
-brew tap anttiharju/app
+brew tap anttiharju/tap
 ```
