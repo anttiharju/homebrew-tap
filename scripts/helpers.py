@@ -16,7 +16,27 @@ class FormulaConfig:
     description: str
     homepage: str
     url: str
-    go: str
+    go: str = None
+
+    def __post_init__(self):
+        """Convert go version to internal format after initialization."""
+        if self.go:
+            value = self.go
+            self._go = None
+            self.go = value
+
+    @property
+    def go(self) -> str:
+        """Return Go version in x.y format."""
+        return self._go
+
+    @go.setter
+    def go(self, value: str) -> None:
+        """Set Go version, accepting x.y or x.y.z format."""
+        if not re.match(r"^\d+\.\d+(?:\.\d+)?$", value):
+            raise ValueError("Go version must be in format x.y or x.y.z")
+        # Store only major.minor
+        self._go = ".".join(value.split(".")[:2])
 
 
 def calculate_sha256(url: str) -> str:
