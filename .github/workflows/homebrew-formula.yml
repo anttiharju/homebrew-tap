@@ -1,4 +1,4 @@
-name: Render Homebrew Formula
+name: Homebrew Formula
 
 on:
   workflow_dispatch:
@@ -21,6 +21,7 @@ on:
 
 jobs:
   render:
+    name: Render
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -39,9 +40,14 @@ jobs:
         run: |
           git config user.name "$username"
           git config user.email "$actor_id+$username@users.noreply.github.com"
-          git add Formula/"$name".rb
-          git commit -m "Update $name formula"
-          git push
+
+          if git diff --quiet Formula/"$name".rb; then
+            echo "Formula $name is already up to date!"
+          else
+            git add Formula/"$name".rb
+            git commit -m "Update $name formula"
+            git push
+          fi
         env:
           username: ${{ github.actor }}
           actor_id: ${{ github.actor_id }}
