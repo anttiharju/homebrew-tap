@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
+import os
 from helpers import GoFormulaConfig, render_formula
 
 config = GoFormulaConfig(
-    name="vmatch-golangci-lint",
-    description="Wrapper that automatically calls the golangci-lint version matching your project",
-    homepage="https://anttiharju.dev/vmatch",
-    url="https://github.com/anttiharju/vmatch/archive/refs/tags/build6.tar.gz",
-    go="1.23",
+    name=os.environ["NAME"],
+    description=os.environ["DESCRIPTION"],
+    homepage=os.environ["HOMEPAGE"],
+    url=os.environ["URL"],
+    go=os.environ["GO_VERSION"],
 )
 
 render_formula(config)

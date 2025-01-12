@@ -1,0 +1,48 @@
+name: Render Homebrew Formula
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        required: true
+        type: string
+      description:
+        required: true
+        type: string
+      homepage:
+        required: true
+        type: string
+      url:
+        required: true
+        type: string
+      go:
+        required: true
+        type: string
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render Formula
+        env:
+          NAME: ${{ inputs.name }}
+          DESCRIPTION: ${{ inputs.description }}
+          HOMEPAGE: ${{ inputs.homepage }}
+          URL: ${{ inputs.url }}
+          GO: ${{ inputs.go }}
+        run: scripts/render.py
+
+      - name: Commit changes
+        run: |
+          git config user.name "$username"
+          git config user.email "$actor_id+$username@users.noreply.github.com"
+          git add Formula/"$name".rb
+          git commit -m "Update $name formula"
+          git push
+        env:
+          username: ${{ github.actor }}
+          actor_id: ${{ github.actor_id }}
+          name: ${{ inputs.name }}
