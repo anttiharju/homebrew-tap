@@ -12,31 +12,19 @@ from typing import Dict
 class GoFormulaConfig:
     """Configuration for generating a Homebrew formula."""
 
-    name: str
+    app_name: str
     description: str
     homepage: str
     url: str
-    go: str = None
+    go_version: str
 
     def __post_init__(self):
-        """Convert go version to internal format after initialization."""
-        if self.go:
-            value = self.go
-            self._go = None
-            self.go = value
-
-    @property
-    def go(self) -> str:
-        """Return Go version in x.y format."""
-        return self._go
-
-    @go.setter
-    def go(self, value: str) -> None:
-        """Set Go version, accepting x.y or x.y.z format."""
-        if not re.match(r"^\d+\.\d+(?:\.\d+)?$", value):
-            raise ValueError("Go version must be in format x.y or x.y.z")
-        # Store only major.minor
-        self._go = ".".join(value.split(".")[:2])
+        """Validate and normalize Go version after initialization."""
+        if self.go_version:
+            if not re.match(r"^\d+\.\d+(?:\.\d+)?$", self.go_version):
+                raise ValueError("Go version must be in format x.y or x.y.z")
+            # Store only major.minor
+            self.go_version = ".".join(self.go_version.split(".")[:2])
 
 
 def calculate_sha256(url: str) -> str:
@@ -66,7 +54,7 @@ def extract_repo(url: str) -> str:
     """Extract repository path from GitHub URL."""
     if match := re.search(r"(github\.com/[^/]+/[^/]+)/", url):
         return match.group(1)
-    raise ValueError("Could not extract repo from GitHub URL")
+    raise ValueError("Could not extract repository from GitHub URL")
 
 
 def extract_version(url: str) -> str:
@@ -79,14 +67,14 @@ def extract_version(url: str) -> str:
 def generate_replacements(config: GoFormulaConfig) -> Dict[str, str]:
     """Generate replacement dictionary for template variables."""
     return {
-        "CLASS_NAME": to_pascal_case(config.name),
+        "CLASS_NAME": to_pascal_case(config.app_name),
         "DESCRIPTION": config.description,
         "HOMEPAGE": config.homepage,
         "URL": config.url,
         "SHA256": calculate_sha256(config.url),
-        "REPO": extract_repo(config.url),
-        "GO": config.go,
-        "APP_NAME": config.name,
+        "REPOSITORY": extract_repo(config.url),
+        "GO_VERSION": config.go_version,
+        "APP_NAME": config.app_name,
         "VERSION": extract_version(config.url),
     }
 
@@ -109,4 +97,4 @@ def render_formula(config: GoFormulaConfig) -> None:
     for key, value in replacements.items():
         template = template.replace(f"${key}", value)
 
-    (formula_dir / f"{config.name}.rb").write_text(template)
+    (formula_dir / f"{config.app_name}.rb").write_text(template)

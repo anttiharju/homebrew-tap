@@ -4,14 +4,14 @@ class $CLASS_NAME < Formula
 
     url "$URL"
     sha256 "$SHA256"
-    head "https://$REPO"
+    head "https://$REPOSITORY"
 
-    depends_on "go@$GO" => :build
+    depends_on "go@$GO_VERSION" => :build
 
     def install
         ENV["GOPATH"] = buildpath
 
-        bin_path = buildpath/"src/$REPO"
+        bin_path = buildpath/"src/$REPOSITORY"
         bin_path.install Dir["*"]
         cd bin_path do
           system "go", "build", "-C", "cmd/$APP_NAME", "-ldflags", "-s -w -buildid=brew-$VERSION"

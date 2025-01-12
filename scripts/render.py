@@ -4,11 +4,11 @@ import os
 from helpers import GoFormulaConfig, render_formula
 
 config = GoFormulaConfig(
-    name=os.environ["NAME"],
+    app_name=os.environ["APP_NAME"],
     description=os.environ["DESCRIPTION"],
     homepage=os.environ["HOMEPAGE"],
     url=os.environ["URL"],
-    go=os.environ["GO"],
+    go_version=os.environ["GO_VERSION"],
 )
 
 render_formula(config)

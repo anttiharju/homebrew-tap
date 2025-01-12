@@ -1,9 +1,9 @@
-name: Homebrew Formula
+name: vMatch formulas
 
 on:
   workflow_dispatch:
     inputs:
-      name:
+      app_name:
         required: true
         type: string
       description:
@@ -15,7 +15,7 @@ on:
       url:
         required: true
         type: string
-      go:
+      go_version:
         required: true
         type: string
 
@@ -23,8 +23,8 @@ permissions:
   contents: write
 
 jobs:
-  render:
-    name: Render
+  update:
+    name: Update
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
@@ -32,11 +32,11 @@ jobs:
 
       - name: Render Formula
         env:
-          NAME: ${{ inputs.name }}
+          APP_NAME: ${{ inputs.app_name }}
           DESCRIPTION: ${{ inputs.description }}
           HOMEPAGE: ${{ inputs.homepage }}
           URL: ${{ inputs.url }}
-          GO: ${{ inputs.go }}
+          GO_VERSION: ${{ inputs.go_version }}
         run: scripts/render.py
 
       - name: Extract version from url
@@ -47,4 +47,4 @@ jobs:
       - name: Release
         uses: anttiharju/actions/commit-changes@v0
         with:
-          message: "Update ${{ inputs.name }} to ${{ steps.extract-version.outputs.version }}"
+          message: "Update ${{ inputs.app_name }} to ${{ steps.extract-version.outputs.version }}"
