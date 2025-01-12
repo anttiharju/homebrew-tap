@@ -55,17 +55,15 @@ def to_pascal_case(kebab_str: str) -> str:
 
 
 def extract_repo(url: str) -> str:
-    """Extract repository path from GitHub URL."""
-    if match := re.search(r"(github\.com/[^/]+/[^/]+)/", url):
-        return match.group(1)
-    raise ValueError("Could not extract repository from GitHub URL")
+    """Extract repository path from GitHub API URL."""
+    if match := re.search(r"api\.github\.com/repos/([^/]+/[^/]+)", url):
+        return f"github.com/{match.group(1)}"
+    raise ValueError("Could not extract repository from GitHub API URL")
 
 
 def extract_version(url: str) -> str:
-    """Extract version from GitHub release URL."""
-    if match := re.search(r"/tags/([^/]+)\.tar\.gz$", url):
-        return match.group(1)
-    raise ValueError("Could not extract version from URL")
+    """Extract version from GitHub API URL."""
+    return url.split("/")[-1]
 
 
 def generate_replacements(config: FormulaConfig) -> Dict[str, str]:

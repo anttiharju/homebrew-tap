@@ -2,8 +2,8 @@ class VmatchGolangciLint < Formula
     desc "Wrapper that automatically calls the golangci-lint version matching your project"
     homepage "https://anttiharju.dev/vmatch"
 
-    url "https://github.com/anttiharju/vmatch/archive/refs/tags/build6.tar.gz"
-    sha256 "3381b2e0cfc73d6f6c76f0114707178519d283ffe47220e679ae83bf6633c7db"
+    url "https://api.github.com/repos/anttiharju/vmatch/tarball/build6"
+    sha256 "e0be214e0f92b5c7390a36ed0f45827e88d669c3ebec47f0df35acfa27992ef8"
     head "https://github.com/anttiharju/vmatch"
 
     depends_on "go@1.23" => :build
