@@ -41,7 +41,7 @@ jobs:
           git config user.name "$username"
           git config user.email "$actor_id+$username@users.noreply.github.com"
 
-          if git diff --quiet Formula/"$name".rb; then
+          if [ -n "$(git status --porcelain)" ]; then
             echo "Formula $name is already up to date!"
           else
             git add Formula/"$name".rb
