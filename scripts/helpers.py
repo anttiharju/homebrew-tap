@@ -22,9 +22,12 @@ class FormulaConfig:
     def __post_init__(self):
         """Validate and normalize Go version after initialization."""
         if self.go_version:
+            # Normalize template string to lowercase
+            self.template = self.template.lower()
+
+            # Normalize go_version to major.minor
             if not re.match(r"^\d+\.\d+(?:\.\d+)?$", self.go_version):
                 raise ValueError("Go version must be in format x.y or x.y.z")
-            # Store only major.minor
             self.go_version = ".".join(self.go_version.split(".")[:2])
 
 
