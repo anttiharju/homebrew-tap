@@ -8,8 +8,8 @@ class Vmatch < Formula
   desc 'golangci-lint + Go version automation'
   homepage 'https://anttiharju.dev/vmatch'
 
-  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/build72'
-  sha256 '2514ea3730407df1c7c2caa5f4e8de55f413165ddea9495cf272fb4c759cdf4c'
+  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/build73'
+  sha256 'd414d7e40c0e9960e31a7e02c93180d11383678a0c777801be4396ec8a3f0710'
   head 'https://github.com/anttiharju/vmatch'
 
   depends_on 'go@1.23' => :build
@@ -20,7 +20,7 @@ class Vmatch < Formula
     bin_path = buildpath / 'src/github.com/anttiharju/vmatch'
     bin_path.install Dir['*']
     cd bin_path do
-      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-build72'
+      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-build73'
       bin.install 'vmatch'
     end
   end
