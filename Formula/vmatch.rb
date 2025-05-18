@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# testing
 # Homebrew formula for vmatch - a tool that automates
 # matching golangci-lint and Go versions to your project.
 #
@@ -9,8 +8,8 @@ class Vmatch < Formula
   desc 'golangci-lint + Go version automation'
   homepage 'https://anttiharju.dev/vmatch'
 
-  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/build99'
-  sha256 'e2c16e0a750dfe5806058f419346a7db32dcd290ccc397d8c6fa489a6e0b411a'
+  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/build100'
+  sha256 'c9322ada7784bc83890bafbd0ec277339ac0279632c05e574536776b765a0b36'
   head 'https://github.com/anttiharju/vmatch'
   license "GPL-3.0-only"
 
@@ -22,7 +21,7 @@ class Vmatch < Formula
     bin_path = buildpath / 'src/github.com/anttiharju/vmatch'
     bin_path.install Dir['*']
     cd bin_path do
-      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-build99'
+      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-build100'
       bin.install 'vmatch'
     end
   end
