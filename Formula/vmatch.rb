@@ -9,7 +9,7 @@ class Vmatch < Formula
   homepage 'https://anttiharju.dev/vmatch'
 
   url 'https://api.github.com/repos/anttiharju/vmatch/tarball/v0.1.0'
-  sha256 '9bd1ff7600fb36c128a0014928d4469e46fa3da0958bf974e96d3af7f0104ba5'
+  sha256 '4973c6af4a0aea15d81a8cbf809130169760d1efa6d694c2572f4ed2bd4627cc'
   head 'https://github.com/anttiharju/vmatch'
   license 'GPL-3.0-only'
 
@@ -18,9 +18,9 @@ class Vmatch < Formula
   bottle do
     root_url 'https://github.com/anttiharju/vmatch/releases/download/v0.1.0'
     rebuild 1
-    sha256 cellar: :any, 0.x86_64_linux: '0b1d2ed8369bd93528ae0cbbb7d41ce9b08dc04802cfa33774426958d66d76ee'
-    sha256 cellar: :any, 0.arm64_sonoma: '25d84f7c3cf1e06ca23b4e05467f9524af404917b215ae309dc2381abec1cea7'
-    sha256 cellar: :any, 0.arm64_sequoia: 'db3e31c2aaa70ee1fcf8b784d211d1b6b2ad938a9ed842b92ac208338509743a'
+    sha256 cellar: :any, x86_64_linux: '227ea11957c6666262520250c0728c2e92bcd36d65cb3d5341e12d81671e7552'
+    sha256 cellar: :any, arm64_sonoma: 'fc961032b579e974e219ddbb115efb233f3db8f14e5be4a0ccc3b8aa73f84ff8'
+    sha256 cellar: :any, arm64_sequoia: '20d65e809b70e7df4da367c61758402d70b72747bd93cdeb9e9181e0941abdbe'
   end
 
   def install
