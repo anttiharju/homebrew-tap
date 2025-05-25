@@ -8,19 +8,19 @@ class Vmatch < Formula
   desc 'Go & golangci-lint version automation'
   homepage 'https://anttiharju.dev/vmatch'
 
-  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/v0.1.0'
-  sha256 '4973c6af4a0aea15d81a8cbf809130169760d1efa6d694c2572f4ed2bd4627cc'
+  url 'https://api.github.com/repos/anttiharju/vmatch/tarball/v0.1.1'
+  sha256 '9b5ff0e7fd26ccd4554c7812cd422f6cd7354cf5eca0af18846971616ada2a98'
   head 'https://github.com/anttiharju/vmatch'
   license 'GPL-3.0-only'
 
   depends_on 'go@1.24' => :build
 
   bottle do
-    root_url 'https://github.com/anttiharju/vmatch/releases/download/v0.1.0'
+    root_url 'https://github.com/anttiharju/vmatch/releases/download/v0.1.1'
     rebuild 1
-    sha256 cellar: :any, x86_64_linux: '227ea11957c6666262520250c0728c2e92bcd36d65cb3d5341e12d81671e7552'
-    sha256 cellar: :any, arm64_sonoma: 'fc961032b579e974e219ddbb115efb233f3db8f14e5be4a0ccc3b8aa73f84ff8'
-    sha256 cellar: :any, arm64_sequoia: '20d65e809b70e7df4da367c61758402d70b72747bd93cdeb9e9181e0941abdbe'
+    sha256 cellar: :any, arm64_sonoma: 'e625af1cdc45e0a746127198f1a541a704272a9d0fb0e58e4bfee0fefbb4146f'
+    sha256 cellar: :any, x86_64_linux: 'ce4cea839465a4d885aef64071fe80b161d94af28c65ef4214165a1777a27bce'
+    sha256 cellar: :any, arm64_sequoia: '292bc3cf479c7d21b1ae24f915c7c51532a484d494e2b177da660a2e005daf4c'
   end
 
   def install
@@ -29,7 +29,7 @@ class Vmatch < Formula
     bin_path = buildpath / 'src/github.com/anttiharju/vmatch'
     bin_path.install Dir['*']
     cd bin_path do
-      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-v0.1.0'
+      system 'go', 'build', '-ldflags', '-s -w -buildid=brew-v0.1.1', '-trimpath'
       bin.install 'vmatch'
     end
   end
