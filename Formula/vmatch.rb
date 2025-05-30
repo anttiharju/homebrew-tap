@@ -3,21 +3,21 @@
 class Vmatch < Formula
   desc 'Go & golangci-lint version automation'
   homepage 'https://anttiharju.dev/vmatch'
-  version '0.1.8'
+  version '1.0.0'
   license 'GPL-3.0-only'
 
   on_macos do
     if Hardware::CPU.intel?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v0.1.8/vmatch-darwin-amd64.tar.gz'
-      sha256 '8eb86d741a704e8dd4f75a769e03f442f9ea506953c22e07a54aca781fd4cc54'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.0/vmatch-darwin-amd64.tar.gz'
+      sha256 'cf993a7c0e1324078821cf1c2e5e96c5063e4b87df683c045b98bdf3d36c8b6d'
 
       def install
         bin.install "vmatch"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/anttiharju/vmatch/releases/download/v0.1.8/vmatch-darwin-arm64.tar.gz"
-      sha256 'dc5fa5257d0e8d30483c94733db051f6351ab3a16aed9341aa8e849bf3f53f84'
+      url "https://github.com/anttiharju/vmatch/releases/download/v1.0.0/vmatch-darwin-arm64.tar.gz"
+      sha256 '6130b7a25c62365187dd01668bea46ab6a9b2a2f50e966a03e293d65fead0262'
 
       def install
         bin.install "vmatch"
@@ -28,8 +28,8 @@ class Vmatch < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/anttiharju/vmatch/releases/download/v0.1.8/vmatch-linux-amd64.tar.gz"
-        sha256 '1352df6fd8d71b66e7dce83d5a930f7c82165a7293e67096cb9bc3c49540542f'
+        url "https://github.com/anttiharju/vmatch/releases/download/v1.0.0/vmatch-linux-amd64.tar.gz"
+        sha256 'd6114144ee5dd9bb1d18422792ee605bc2defb5fd5c91137473c43a3ee33f5e0'
 
         def install
           bin.install "vmatch"
@@ -38,8 +38,8 @@ class Vmatch < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/anttiharju/vmatch/releases/download/v0.1.8/vmatch-linux-arm64.tar.gz"
-        sha256 '2a453c280b74666b7487f67f648e759f34b953271e408c60dcff4352427de0f3'
+        url "https://github.com/anttiharju/vmatch/releases/download/v1.0.0/vmatch-linux-arm64.tar.gz"
+        sha256 '6e8523020b85cd609e09b54298822f21ae5e13a52da396d2365f052fd833922f'
 
         def install
           bin.install "vmatch"
