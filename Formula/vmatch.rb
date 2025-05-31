@@ -4,21 +4,21 @@
 class Vmatch < Formula
   desc 'Go & golangci-lint version automation'
   homepage 'https://anttiharju.dev/vmatch'
-  version '1.0.3'
+  version '1.0.4'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.intel?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.3/vmatch-darwin-amd64.tar.gz'
-      sha256 '28c5613018ab90ec4f89cc56670ec44e9038008eaa34dc482a5912b1fafa9d02'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.4/vmatch-darwin-amd64.tar.gz'
+      sha256 'ed569fdac484adbb95f9a78197ad65dcdc5f703c86ecb8bf45d479c6e51f9cf4'
 
       def install
         bin.install 'vmatch'
       end
     end
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.3/vmatch-darwin-arm64.tar.gz'
-      sha256 'b836d907247a09abc3ed02fca4bc688835c3f342cc1bbc314faed57e1f4e592c'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.4/vmatch-darwin-arm64.tar.gz'
+      sha256 'd8372eb5c96690b5cb6532629667a41b8e4a27156407a71ad43e89c1fcced6d2'
 
       def install
         bin.install 'vmatch'
@@ -28,16 +28,16 @@ class Vmatch < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.3/vmatch-linux-amd64.tar.gz'
-      sha256 'ab25c9eb49d3a52bf55b5cb9c3b8e3c73e6893e9772942aec49df7c085f9e5e0'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.4/vmatch-linux-amd64.tar.gz'
+      sha256 '956b20f07415bf793f0af4d8f1e5175e19afb3efbd860374b0e2637bf09b6239'
 
       def install
         bin.install 'vmatch'
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.3/vmatch-linux-arm64.tar.gz'
-      sha256 '18836d47b818abdb41376a67cc99c27f7aefe29214c842a180022b923955fca7'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.4/vmatch-linux-arm64.tar.gz'
+      sha256 '6df8c8b93af39b4240f105c069671244bf5e878d5a414fcad813ae4bf5f46b03'
 
       def install
         bin.install 'vmatch'
