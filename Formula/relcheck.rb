@@ -4,21 +4,21 @@
 class Relcheck < Formula
   desc 'Performant relative link checker'
   homepage 'https://anttiharju.dev/relcheck'
-  version '1.6.0'
+  version '1.7.0'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.intel?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.6.0/relcheck-darwin-amd64.tar.gz'
-      sha256 '21f0753844f481da6fe6306be7a91ec138a93f5186fab96d97d453d80021dab8'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.7.0/relcheck-darwin-amd64.tar.gz'
+      sha256 '6a50cf7771e3048126394fae176e409e987b1a834ba7742f19e228f4621ae9fb'
 
       def install
         bin.install 'relcheck'
       end
     end
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.6.0/relcheck-darwin-arm64.tar.gz'
-      sha256 'b486f23a3800b7c566dc59514f61ceac46fff4dc0232706869f3454b0a27a142'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.7.0/relcheck-darwin-arm64.tar.gz'
+      sha256 '6f44b589b70b6ac89562659bf5c520088b17f15ec3e72b2431284fcde641a6f3'
 
       def install
         bin.install 'relcheck'
@@ -28,16 +28,16 @@ class Relcheck < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.6.0/relcheck-linux-amd64.tar.gz'
-      sha256 'f196cfedc566bc17a4a2bd6b7dd4f94d667c2155d7c7cf59d4d754df46171f8a'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.7.0/relcheck-linux-amd64.tar.gz'
+      sha256 '216beb8cceb77756e7ee096fb5a85488e07ca5dd798ee2e22f8bb4e8f0719a6e'
 
       def install
         bin.install 'relcheck'
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.6.0/relcheck-linux-arm64.tar.gz'
-      sha256 '15b2af8e539ee93323a0507ffcdad70d8cfca8f625d9b059b0fa902c87db96f0'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.7.0/relcheck-linux-arm64.tar.gz'
+      sha256 'f40ef9ed690debf477770c6431dab19ee506213d60e339b071188b8b8d9c7fcc'
 
       def install
         bin.install 'relcheck'
