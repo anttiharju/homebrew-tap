@@ -4,13 +4,13 @@
 class CompareChanges < Formula
   desc 'WIP'
   homepage 'http://anttiharju.dev/compare-changes/'
-  version '0.1.2'
+  version '0.1.3'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.2/compare-changes-darwin-arm64.tar.gz'
-      sha256 'f07871e2c283f4ea11be22afcf5f6a201fef38df1c22482f7991e787210b27c1'
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.3/compare-changes-aarch64-apple-darwin.tar.gz'
+      sha256 'edf047bf0b3bd10c39222fdc0bf0753d98648d51a82bbe1fa2644ac04069389b'
 
       def install
         bin.install 'compare-changes'
@@ -20,16 +20,16 @@ class CompareChanges < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.2/compare-changes-linux-amd64.tar.gz'
-      sha256 'a002f36d6e91564c038b4598fe980c10095a272764d02be65b08187c0367cc5f'
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.3/compare-changes-x86_64-unknown-linux-gnu.tar.gz'
+      sha256 'f02a035bebf8ec3f1cb170c952ccf5c236d7aff3d2233374c656c45c59b84441'
 
       def install
         bin.install 'compare-changes'
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.2/compare-changes-linux-arm64.tar.gz'
-      sha256 '6a5b761969e64956cd87ea1d5e654c83d160a9c325b48f1cdbb4194e6e010010'
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.3/compare-changes-aarch64-unknown-linux-gnu.tar.gz'
+      sha256 '173d022b4bff7e9751a6d5cc53ddff0bb9228eaf500486f3cb9cc2936988c0fa'
 
       def install
         bin.install 'compare-changes'
