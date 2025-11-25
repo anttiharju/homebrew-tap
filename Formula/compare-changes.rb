@@ -4,13 +4,13 @@
 class CompareChanges < Formula
   desc 'For use with find-changes-action'
   homepage 'http://anttiharju.dev/compare-changes/'
-  version '0.1.19'
+  version '0.1.20'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.19/compare-changes-aarch64-apple-darwin.tar.gz'
-      sha256 '737a5f4614fe54dc903b08b3a8417891b552bd66ebb81d9200ea922f1202c8e2'
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.20/compare-changes-aarch64-apple-darwin.tar.gz'
+      sha256 'd210d44053ac317901298878e7cf520fa3d3d38391765c2ce7bdcce03ccee0a6'
 
       def install
         bin.install 'compare-changes'
@@ -19,17 +19,17 @@ class CompareChanges < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.19/compare-changes-x86_64-unknown-linux-gnu.tar.gz'
-      sha256 '65b0eecd2e1e5e1463596c66bb66bd0c1c6a7f5aec4950969c7822dcb6215633'
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.20/compare-changes-aarch64-unknown-linux-gnu.tar.gz'
+      sha256 '269fea4cb7c4c4a10f13a02c2a9a28cfe2b84b9efda63e7daf048e0c0332a777'
 
       def install
         bin.install 'compare-changes'
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.19/compare-changes-aarch64-unknown-linux-gnu.tar.gz'
-      sha256 'f6628e05304c43419185cb1428b59951cc869e777b8e9eab9af7ef4ffb0ac93e'
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/compare-changes/releases/download/v0.1.20/compare-changes-x86_64-unknown-linux-gnu.tar.gz'
+      sha256 '317cdd7a668d50ef9d7055e907086a761980377e57a2bc32437892de9187f28d'
 
       def install
         bin.install 'compare-changes'
@@ -38,6 +38,6 @@ class CompareChanges < Formula
   end
 
   test do
-    system "#{bin}/compare-changes"
+    system "#{bin}/compare-changes --version"
   end
 end
