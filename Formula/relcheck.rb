@@ -4,21 +4,21 @@
 class Relcheck < Formula
   desc 'Performant relative link checker'
   homepage 'https://anttiharju.dev/relcheck'
-  version '1.8.13'
+  version '1.8.14'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.intel?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.13/relcheck-darwin-amd64.tar.gz'
-      sha256 'd11e93acefd76c80d859b28166c88801f1eef3af2cb76e026f24154515b9f87f'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.14/relcheck-darwin-amd64.tar.gz'
+      sha256 'fea9c44884152524f8a6e64e6a3c95ae45c4f0a0ac37921f5b6a35f3012e8311'
 
       def install
         bin.install 'relcheck'
       end
     end
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.13/relcheck-darwin-arm64.tar.gz'
-      sha256 'c1f8ed69019b8a1a09f74fdee68b5ed3d53ac4b7c852189b4341e85a36d05676'
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.14/relcheck-darwin-arm64.tar.gz'
+      sha256 '502bdf907aa99db4c1bfc3d59ed7b9a7e181e4a25b5c8490adfdbdf146ec0794'
 
       def install
         bin.install 'relcheck'
@@ -27,17 +27,17 @@ class Relcheck < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.13/relcheck-linux-amd64.tar.gz'
-      sha256 '4d9ab92a59ffbb296462bf4d1c6cf3c7160ea4d52b4e2e6c5522c6dde8b6748e'
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.14/relcheck-linux-arm64.tar.gz'
+      sha256 '176792fe9209d5aa954224ad6bfc4ec1963feea79bbac3d149ec46635d76e911'
 
       def install
         bin.install 'relcheck'
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.13/relcheck-linux-arm64.tar.gz'
-      sha256 '2c70b2cb4de83b99ceb7a15c741a36d1de6c02a205d84336c1eeded3c1fdf151'
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.14/relcheck-linux-amd64.tar.gz'
+      sha256 '331cfcf8b559f70654b29bdb07c23d1453b061fedfee25dec2370a6022eec92f'
 
       def install
         bin.install 'relcheck'
