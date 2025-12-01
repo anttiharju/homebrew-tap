@@ -4,21 +4,21 @@
 class Vmatch < Formula
   desc 'Go and golangci-lint automation'
   homepage 'https://anttiharju.dev/vmatch'
-  version '1.0.53'
+  version '1.0.54'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.intel?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.53/vmatch-darwin-amd64.tar.gz'
-      sha256 '43c693d4754139e85d4a27d7e121d2b2e3658f383c1699fd40523cd955506ba0'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.54/vmatch-darwin-amd64.tar.gz'
+      sha256 '2f8d89b6d2880c57109b2ca0d0ab3108108da694be3ad7c051893f1c8121d773'
 
       def install
         bin.install 'vmatch'
       end
     end
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.53/vmatch-darwin-arm64.tar.gz'
-      sha256 'dafaa5c8b196297bbed11f4708d311ceb1e47bf7845828460dcff055377dd4bb'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.54/vmatch-darwin-arm64.tar.gz'
+      sha256 '975083f729832b5f66417fb5f5afd0261ef30675adf3c5fed466e708d630c994'
 
       def install
         bin.install 'vmatch'
@@ -27,17 +27,17 @@ class Vmatch < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.53/vmatch-linux-amd64.tar.gz'
-      sha256 '6671a6b8015ee571fdd363c6564c1825d81480e4bf27b072d644323c890a4d10'
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.54/vmatch-linux-arm64.tar.gz'
+      sha256 'e50419ac4028d8a9814e00adb5bfa899c53a8d013721989b91615fe5f78a8db4'
 
       def install
         bin.install 'vmatch'
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.53/vmatch-linux-arm64.tar.gz'
-      sha256 '83e63f0fda5d714b8c3a560e73b9732cbcf7aba7e81e95fc01f1d1ca35de0fef'
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.54/vmatch-linux-amd64.tar.gz'
+      sha256 '0ace7d4057925ab5eddcac2829380414267bd91eb9fe8fd59470f1f9f87c2678'
 
       def install
         bin.install 'vmatch'
