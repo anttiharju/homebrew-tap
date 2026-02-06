@@ -4,13 +4,13 @@
 class Vmatch < Formula
   desc 'Go and golangci-lint automation'
   homepage 'https://anttiharju.dev/vmatch'
-  version '1.0.57'
+  version '1.0.58'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.57/vmatch-darwin-arm64.tar.gz'
-      sha256 '8d2a6ed4cbf1376fe3b91edcbf4a6557d0db68217025c50145d21d3d89ac5cd9'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.58/vmatch-darwin-arm64.tar.gz'
+      sha256 'f72197ceab0d40964ed67e4f355060f90d3d1886d088abe5d71000e429cc1ac9'
 
       def install
         bin.install 'vmatch'
@@ -20,16 +20,16 @@ class Vmatch < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.57/vmatch-linux-arm64.tar.gz'
-      sha256 '51e79cf414b517029f5b5504495a6d716a42cf7b3abac2770fa2cf837564ab24'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.58/vmatch-linux-arm64.tar.gz'
+      sha256 '061c1b31f28605aec43f99fdf2666f5b4434f4a22ca06854dcd4ea764f665540'
 
       def install
         bin.install 'vmatch'
       end
     end
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.57/vmatch-linux-amd64.tar.gz'
-      sha256 'cd5a9c9e8c1720e1a5aaa3914c7a82bd4043ea5dff31f6de9670e7c119c78cd3'
+      url 'https://github.com/anttiharju/vmatch/releases/download/v1.0.58/vmatch-linux-amd64.tar.gz'
+      sha256 '4011e9c5f9aa6dbdedf9f2352f0af338332d422c11eaee227544f183e061b719'
 
       def install
         bin.install 'vmatch'
