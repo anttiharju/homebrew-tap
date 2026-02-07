@@ -4,13 +4,13 @@
 class Relcheck < Formula
   desc 'Performant relative link checker'
   homepage 'https://anttiharju.dev/relcheck'
-  version '1.8.17'
+  version '1.8.18'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.17/relcheck-darwin-arm64.tar.gz'
-      sha256 '7287c6cb1d9c023e69585e58dad70066203adcef52f16f3997f4d8670a4a5bec'
+      url "https://github.com/anttiharju/relcheck/releases/download/v#{version}/relcheck-darwin-arm64.tar.gz"
+      sha256 '30ad97dd764242c3f9f3240a9aa1028aca223c65e7d59b94c143356ee679e8ad'
 
       def install
         bin.install 'relcheck'
@@ -20,16 +20,16 @@ class Relcheck < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.17/relcheck-linux-arm64.tar.gz'
-      sha256 '27391ada57347a22f72fdbe0b64074c6843717489dbc50635e9745ee54b88c5c'
+      url "https://github.com/anttiharju/relcheck/releases/download/v#{version}/relcheck-linux-arm64.tar.gz"
+      sha256 '3ace611b55c51c28381d3ad9d98728862eec8d8aa1852096a3251f5937650368'
 
       def install
         bin.install 'relcheck'
       end
     end
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url 'https://github.com/anttiharju/relcheck/releases/download/v1.8.17/relcheck-linux-amd64.tar.gz'
-      sha256 '5ac0ec3a88c23f6523404f3b3a8581e8b186fb11f5e858141726a15dbf94febd'
+      url "https://github.com/anttiharju/relcheck/releases/download/v#{version}/relcheck-linux-amd64.tar.gz"
+      sha256 '37b0a056b587036fd814d478c7b0a73e0cb134c8c563ae52aa79b7b7616e0103'
 
       def install
         bin.install 'relcheck'
@@ -38,6 +38,6 @@ class Relcheck < Formula
   end
 
   test do
-    system "#{bin}/relcheck version"
+    system "#{bin}/relcheck --version"
   end
 end
