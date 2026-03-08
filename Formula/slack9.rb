@@ -4,13 +4,13 @@
 class Slack9 < Formula
   desc 'Enter cloud nine'
   homepage 'https://anttiharju.dev/slack9'
-  version '0.1.1'
+  version '0.1.2'
   license 'MIT'
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/anttiharju/slack9/releases/download/v#{version}/slack9-aarch64-apple-darwin.tar.gz"
-      sha256 '9dda15c4e546d12b58dc1ac1d40210db93c1a8293071fe4e6960f3b621606c0a'
+      sha256 'e0b16965d0ec515e5dfff6dbad891b73e92a160e6e55392b30077a655873e026'
 
       def install
         bin.install 'slack9'
@@ -21,7 +21,7 @@ class Slack9 < Formula
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/anttiharju/slack9/releases/download/v#{version}/slack9-aarch64-unknown-linux-musl.tar.gz"
-      sha256 '6c9463ab9bef83bdbf745c704a37ddf8405a9fa0122844a6fd8675986f67fdbd'
+      sha256 '095ebeea3f8d5e49da73408f25dcb0b04f76bd175b86017a9632d14b6bf90f19'
 
       def install
         bin.install 'slack9'
@@ -29,7 +29,7 @@ class Slack9 < Formula
     end
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/anttiharju/slack9/releases/download/v#{version}/slack9-x86_64-unknown-linux-musl.tar.gz"
-      sha256 'b70eb5ff7973529e11bcfd603e4daf2d2433450723637f4daa9834a5fd40ed0c'
+      sha256 'edef97ebe52e00fcdb21c82510295f5abce43b9e80ab965eb44fae79bf4dfb8b'
 
       def install
         bin.install 'slack9'
